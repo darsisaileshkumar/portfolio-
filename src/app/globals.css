@@ -114,6 +114,15 @@ body {
   background: var(--color-accent-primary);
 }
 
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
+  body, *, *::before, *::after {
+    cursor: auto !important;
+  }
+  #custom-cursor {
+    display: none !important;
+  }
+}
+
 /* ============================================================
    GLASSMORPHISM PANEL — use ONLY on nav, cards, modals, contact
    ============================================================ */
@@ -206,7 +215,13 @@ body {
 
 @media (max-width: 768px) {
   .container-max {
-    padding-inline: 24px;
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-max {
+    padding-inline: 16px;
   }
 }
 

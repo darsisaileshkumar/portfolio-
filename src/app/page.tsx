@@ -237,7 +237,7 @@ export default function HomePage() {
               <div
                 key={project.slug}
                 style={{
-                  flex: "0 0 280px",
+                  flex: "0 0 clamp(240px, 75vw, 280px)",
                   scrollSnapAlign: "start",
                 }}
               >
@@ -262,15 +262,7 @@ export default function HomePage() {
         }}
       >
         <div className="container-max w-full">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "80px",
-              alignItems: "start",
-            }}
-            className="grid-cols-1 md:grid-cols-2"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start">
             {/* Left */}
             <div>
               <p
@@ -321,7 +313,7 @@ export default function HomePage() {
             </div>
 
             {/* Right: Form */}
-            <div className="glass-panel" style={{ padding: "40px", borderRadius: "20px" }}>
+            <div className="glass-panel p-6 md:p-10" style={{ borderRadius: "20px" }}>
               {sent ? (
                 <div style={{ textAlign: "center", padding: "32px 0" }}>
                   <Send size={32} style={{ color: "var(--color-accent-primary)", margin: "0 auto 16px" }} />

@@ -35,7 +35,7 @@ export function Navbar() {
     >
       <div
         className={`container-max w-full flex items-center justify-between transition-all duration-500 ${
-          scrolled ? "glass-panel px-6 py-3 mx-8 rounded-2xl" : ""
+          scrolled ? "glass-panel px-4 md:px-6 py-3 mx-3 md:mx-8 rounded-2xl" : ""
         }`}
         style={scrolled ? { maxWidth: "calc(1440px - 128px)" } : {}}
       >
@@ -91,11 +91,12 @@ export function Navbar() {
               href={link.href}
               className="nav-link text-base"
               style={{ textTransform: "none", letterSpacing: "normal" }}
+              onClick={() => setMobileOpen(false)}
             >
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" className="btn-primary justify-center mt-2">
+          <Link href="/contact" className="btn-primary justify-center mt-2" onClick={() => setMobileOpen(false)}>
             Let&apos;s talk
           </Link>
         </div>

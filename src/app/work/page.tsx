@@ -26,17 +26,17 @@ export default function WorkPage() {
             WebkitOverflowScrolling: "touch",
           }}
         >
-          {projects.map((project) => (
-            <div
-              key={project.slug}
-              style={{
-                flex: "0 0 280px",
-                scrollSnapAlign: "start",
-              }}
-            >
-              <ProjectCard project={project} />
-            </div>
-          ))}
+            {projects.map((project) => (
+              <div
+                key={project.slug}
+                style={{
+                  flex: "0 0 clamp(240px, 75vw, 280px)",
+                  scrollSnapAlign: "start",
+                }}
+              >
+                <ProjectCard project={project} />
+              </div>
+            ))}
         </div>
       </div>
     </div>

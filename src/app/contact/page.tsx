@@ -58,15 +58,7 @@ export default function ContactPage() {
       }}
     >
       <div className="container-max section-spacing">
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "80px",
-            alignItems: "start",
-          }}
-          className="grid-cols-1 md:grid-cols-2"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start">
           {/* Left — headline */}
           <div>
             <p
@@ -169,7 +161,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right — contact form inside glass panel */}
-          <div className="glass-panel" style={{ padding: "40px" }}>
+          <div className="glass-panel p-6 md:p-10">
             {sent ? (
               <div
                 style={{

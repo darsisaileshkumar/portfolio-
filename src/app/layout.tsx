@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
-import { Footer } from "@/components/ui/Footer";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { PageTransition } from "@/components/ui/PageTransition";
 import { ReducedMotionProvider } from "@/components/providers/ReducedMotionProvider";

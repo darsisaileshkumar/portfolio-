@@ -6,7 +6,6 @@ import { useAppStore } from "@/lib/store";
 
 export function IntroSequence() {
   const roadRef = useRef<THREE.Group>(null);
-  const cameraTarget = useRef(new THREE.Vector3(0, 2, -10));
   const { progress } = useProgress();
   const setIntroFinished = useAppStore((state) => state.setIntroFinished);
 

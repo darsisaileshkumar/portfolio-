@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useMemo, useState, useEffect } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useRef, useMemo, useState } from "react";
+import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 const COUNT = 3000;

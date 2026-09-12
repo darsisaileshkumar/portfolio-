@@ -124,7 +124,7 @@ export function CoreHeroMesh({ isMobile = false }: CoreHeroMeshProps) {
     []
   );
 
-  useFrame(({ clock, mouse }) => {
+  useFrame(({ clock }) => {
     if (!meshRef.current) return;
 
     const t = clock.getElapsedTime();
@@ -140,8 +140,7 @@ export function CoreHeroMesh({ isMobile = false }: CoreHeroMeshProps) {
   return (
     <PresentationControls
       global
-      config={{ mass: 2, tension: 200, friction: 20 }}
-      snap={{ mass: 4, tension: 50, friction: 30 }}
+      snap
       rotation={[0, 0, 0]}
       polar={[-Math.PI / 8, Math.PI / 8]}
       azimuth={[-Math.PI / 8, Math.PI / 8]}

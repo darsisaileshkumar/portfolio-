@@ -10,34 +10,6 @@ const tools = [
   "Photoshop",
   "Lightroom",
 ];
-
-const processSteps = [
-  {
-    number: "01",
-    title: "Discovery",
-    description:
-      "Deep-dive into the project's goals, audience, and emotional target. Every cut starts before the edit bay.",
-  },
-  {
-    number: "02",
-    title: "Structure",
-    description:
-      "Build the narrative backbone — pacing, story arc, and emotional beats — before touching a single clip.",
-  },
-  {
-    number: "03",
-    title: "Craft",
-    description:
-      "Assemble, refine, color, and sound-design until the piece feels inevitable. Every frame earns its place.",
-  },
-  {
-    number: "04",
-    title: "Deliver",
-    description:
-      "Client collaboration, revision rounds, and final delivery in every format needed — on time, every time.",
-  },
-];
-
 export default function AboutPage() {
   return (
     <div

@@ -6,8 +6,6 @@ import { AdaptiveDpr, AdaptiveEvents } from "@react-three/drei";
 import { CoreHeroMesh } from "./CoreHeroMesh";
 import { ParticleField } from "./ParticleField";
 import { useReducedMotion } from "@/components/providers/ReducedMotionProvider";
-import { IntroSequence } from "./IntroSequence";
-import { useAppStore } from "@/lib/store";
 
 function Lights() {
   return (
@@ -30,9 +28,8 @@ export function HeroCanvas({ showParticles = true }: HeroCanvasProps) {
   const reducedMotion = useReducedMotion();
   const [isMobile, setIsMobile] = useState(false);
   
-  // Need to read from store, but guard against hydration mismatch since sessionStorage is client-only
+  // Guard against hydration mismatch since sessionStorage is client-only
   const [mounted, setMounted] = useState(false);
-  const introFinished = useAppStore((state) => state.introFinished);
 
   useEffect(() => {
     setMounted(true);

@@ -1,39 +1,41 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Physics, RigidBody, CuboidCollider, InstancedRigidBodies } from "@react-three/rapier";
-import * as THREE from "three";
+import { useRef, useMemo } from "react";
+import { Canvas, ThreeEvent } from "@react-three/fiber";
+import { Physics, RigidBody, CuboidCollider, InstancedRigidBodies, RapierRigidBody, InstancedRigidBodyProps } from "@react-three/rapier";
 
 const COUNT = 30;
 
 function Shapes() {
-  const [positions] = useState(() =>
-    Array.from({ length: COUNT }, () => [
-      (Math.random() - 0.5) * 4,
-      Math.random() * 5 + 2,
-      (Math.random() - 0.5) * 4,
-    ])
-  );
-  
-  const [rotations] = useState(() =>
-    Array.from({ length: COUNT }, () => [
-      Math.random() * Math.PI,
-      Math.random() * Math.PI,
-      Math.random() * Math.PI,
-    ])
-  );
+  const instances = useMemo<InstancedRigidBodyProps[]>(() => {
+    return Array.from({ length: COUNT }, (_, i) => ({
+      key: i,
+      position: [
+        (Math.random() - 0.5) * 4,
+        Math.random() * 5 + 2,
+        (Math.random() - 0.5) * 4,
+      ],
+      rotation: [
+        Math.random() * Math.PI,
+        Math.random() * Math.PI,
+        Math.random() * Math.PI,
+      ],
+    }));
+  }, []);
 
   const colors = ["#6E5BFF", "#33E0C7", "#0F1116"];
-  const api = useRef<any>(null);
+  const api = useRef<(RapierRigidBody | null)[]>(null);
 
-  const handlePointerDown = (e: any) => {
+  const handlePointerDown = (e: ThreeEvent<PointerEvent> & { instanceId?: number }) => {
     e.stopPropagation();
     if (api.current) {
       const idx = e.instanceId;
       if (idx !== undefined) {
-        api.current.at(idx).applyImpulse({ x: (Math.random() - 0.5) * 5, y: 10, z: (Math.random() - 0.5) * 5 }, true);
-        api.current.at(idx).applyTorqueImpulse({ x: Math.random(), y: Math.random(), z: Math.random() }, true);
+        const body = api.current[idx];
+        if (body) {
+          body.applyImpulse({ x: (Math.random() - 0.5) * 5, y: 10, z: (Math.random() - 0.5) * 5 }, true);
+          body.applyTorqueImpulse({ x: Math.random(), y: Math.random(), z: Math.random() }, true);
+        }
       }
     }
   };
@@ -41,8 +43,7 @@ function Shapes() {
   return (
     <InstancedRigidBodies
       ref={api}
-      positions={positions as any}
-      rotations={rotations as any}
+      instances={instances}
       colliders="cuboid"
     >
       <instancedMesh args={[undefined, undefined, COUNT]} onPointerDown={handlePointerDown}>

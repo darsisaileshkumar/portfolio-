@@ -42,7 +42,7 @@ export default function ContactPage() {
       } else {
         alert("There was a problem sending your message. Please try the direct email link instead.");
       }
-    } catch (error) {
+    } catch {
       // Fallback for development if Formspree isn't set up yet
       console.log("Form submission simulated. Replace YOUR_ENDPOINT_HERE with a real Formspree endpoint.");
       setSent(true);

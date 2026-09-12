@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Send, Film, Wand2, Palette, Box, Layout, Mic, Image, Video } from "lucide-react";
+import { ChevronDown, Send } from "lucide-react";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { projects } from "@/lib/projects";
 import { HeroCanvasClient } from "@/components/3d/HeroCanvasClient";
@@ -15,29 +15,6 @@ const tools = [
   { name: "AUDITION", badge: "Au", color: "#FFDF99" },
   { name: "PHOTOSHOP", badge: "Ps", color: "#31A8FF" },
   { name: "LIGHTROOM", badge: "Lr", color: "#2FA4FF" },
-];
-
-const processSteps = [
-  {
-    number: "01",
-    title: "Discovery",
-    description: "Deep-dive into the project's goals, audience, and emotional target.",
-  },
-  {
-    number: "02",
-    title: "Structure",
-    description: "Build the narrative backbone, pacing, and emotional beats.",
-  },
-  {
-    number: "03",
-    title: "Craft",
-    description: "Assemble, refine, color, and sound-design until every frame earns its place.",
-  },
-  {
-    number: "04",
-    title: "Deliver",
-    description: "Final delivery in every format needed — on time, every time.",
-  },
 ];
 
 export default function HomePage() {
@@ -66,7 +43,7 @@ export default function HomePage() {
       } else {
         setSent(true);
       }
-    } catch (error) {
+    } catch {
       setSent(true);
     }
   };

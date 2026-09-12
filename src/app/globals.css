@@ -19,10 +19,10 @@
   --color-divider: rgba(255, 255, 255, 0.06);
 
   /* Typography scale */
-  --text-hero: clamp(3.5rem, 8vw, 7rem);
-  --text-h1: clamp(2.25rem, 4vw, 3.5rem);
-  --text-h2: 2rem;
-  --text-h3: 1.25rem;
+  --text-hero: clamp(2.25rem, 7vw, 6rem);
+  --text-h1: clamp(1.75rem, 5vw, 3.5rem);
+  --text-h2: clamp(1.35rem, 4vw, 2rem);
+  --text-h3: clamp(1.1rem, 2.5vw, 1.25rem);
   --text-body: 1rem;
   --text-small: 0.875rem;
   --text-caption: 0.75rem;
@@ -208,6 +208,7 @@ body {
    ============================================================ */
 
 .container-max {
+  width: 100%;
   max-width: 1440px;
   margin-inline: auto;
   padding-inline: 64px;
@@ -225,13 +226,21 @@ body {
   }
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .section-spacing {
   padding-block: 128px;
 }
 
 @media (max-width: 768px) {
   .section-spacing {
-    padding-block: 64px;
+    padding-block: 48px;
   }
 }
 

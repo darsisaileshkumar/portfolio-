@@ -60,8 +60,9 @@ export default function HomePage() {
           flexDirection: "column",
           justifyContent: "center",
           background: "var(--color-bg-void)",
-          paddingTop: "96px",
-          paddingBottom: "80px",
+          paddingTop: "clamp(80px, 12vh, 112px)",
+          paddingBottom: "clamp(48px, 8vh, 80px)",
+          scrollMarginTop: "80px",
         }}
       >
         {/* 3D Canvas Background */}
@@ -83,7 +84,7 @@ export default function HomePage() {
 
         <div className="container-max" style={{ position: "relative", zIndex: 2 }}>
           <p
-            className="text-caption mb-4"
+            className="text-caption mb-3 md:mb-4"
             style={{ color: "var(--color-accent-primary)", letterSpacing: "2px" }}
           >
             ABOUT — VIDEO EDITOR & MOTION DESIGNER
@@ -92,29 +93,28 @@ export default function HomePage() {
           <div
             style={{
               maxWidth: "840px",
-              marginBottom: "64px",
+              marginBottom: "clamp(32px, 6vh, 64px)",
             }}
           >
             <h1
               style={{
-                fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
+                fontSize: "clamp(1.75rem, 6.5vw, 4.5rem)",
                 fontWeight: 700,
                 letterSpacing: "-0.02em",
                 color: "var(--color-text-primary)",
                 lineHeight: "1.15",
-                marginBottom: "28px",
+                marginBottom: "20px",
               }}
             >
               I don&apos;t just cut footage.&nbsp;
-              <br />
-              <span style={{ color: "var(--color-accent-primary)", textTransform: "uppercase" }}>
+              <span className="block mt-1 md:inline md:mt-0" style={{ color: "var(--color-accent-primary)", textTransform: "uppercase" }}>
                 I BUILD ATTENTION.
               </span>
             </h1>
             <p
               style={{
                 color: "var(--color-text-secondary)",
-                fontSize: "clamp(1.1rem, 2vw, 1.35rem)",
+                fontSize: "clamp(1.05rem, 2.5vw, 1.35rem)",
                 lineHeight: "1.6",
                 maxWidth: "680px",
               }}
@@ -126,7 +126,7 @@ export default function HomePage() {
           {/* Marquee Strip with Icons */}
           <div
             style={{
-              height: "64px",
+              height: "56px",
               background: "rgba(255,255,255,0.02)",
               borderRadius: "16px",
               border: "1px solid var(--color-divider)",
@@ -142,26 +142,26 @@ export default function HomePage() {
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
-                    gap: "12px",
-                    paddingInline: "28px",
+                    gap: "10px",
+                    paddingInline: "20px",
                     whiteSpace: "nowrap",
                     color: "var(--color-text-secondary)",
                     fontWeight: 600,
-                    fontSize: "0.95rem",
+                    fontSize: "0.85rem",
                     letterSpacing: "0.5px",
                   }}
                 >
                   <span
                     style={{
-                      width: "32px",
-                      height: "32px",
-                      borderRadius: "8px",
+                      width: "28px",
+                      height: "28px",
+                      borderRadius: "6px",
                       background: "rgba(255,255,255,0.06)",
                       border: "1px solid rgba(255,255,255,0.12)",
                       display: "inline-flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      fontSize: "12px",
+                      fontSize: "11px",
                       fontWeight: 800,
                       color: tool.color,
                       boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
@@ -172,7 +172,7 @@ export default function HomePage() {
                   <span>{tool.name}</span>
                   <span
                     style={{
-                      marginLeft: "20px",
+                      marginLeft: "14px",
                       color: "var(--color-accent-primary)",
                       opacity: 0.3,
                     }}
@@ -189,7 +189,7 @@ export default function HomePage() {
         <div
           style={{
             position: "absolute",
-            bottom: "20px",
+            bottom: "16px",
             left: "50%",
             transform: "translateX(-50%)",
             zIndex: 2,
@@ -216,19 +216,21 @@ export default function HomePage() {
         style={{
           background: "var(--color-bg-void)",
           minHeight: "100vh",
-          paddingTop: "96px",
-          paddingBottom: "96px",
+          paddingTop: "clamp(60px, 10vh, 96px)",
+          paddingBottom: "clamp(60px, 10vh, 96px)",
           borderTop: "1px solid var(--color-divider)",
+          scrollMarginTop: "80px",
         }}
       >
         <div className="container-max">
           {/* Side-by-Side 9:16 Scrollable Reel Showcase */}
           <div
+            className="no-scrollbar"
             style={{
               display: "flex",
-              gap: "24px",
+              gap: "20px",
               overflowX: "auto",
-              paddingBottom: "24px",
+              paddingBottom: "20px",
               scrollSnapType: "x mandatory",
               WebkitOverflowScrolling: "touch",
             }}
@@ -237,7 +239,7 @@ export default function HomePage() {
               <div
                 key={project.slug}
                 style={{
-                  flex: "0 0 clamp(240px, 75vw, 280px)",
+                  flex: "0 0 clamp(240px, 78vw, 300px)",
                   scrollSnapAlign: "start",
                 }}
               >
@@ -254,25 +256,26 @@ export default function HomePage() {
         style={{
           background: "var(--color-bg-panel)",
           minHeight: "100vh",
-          paddingTop: "96px",
-          paddingBottom: "96px",
+          paddingTop: "clamp(60px, 10vh, 96px)",
+          paddingBottom: "clamp(60px, 10vh, 96px)",
           borderTop: "1px solid var(--color-divider)",
           display: "flex",
           alignItems: "center",
+          scrollMarginTop: "80px",
         }}
       >
         <div className="container-max w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
             {/* Left */}
             <div>
               <p
-                className="text-caption mb-6"
+                className="text-caption mb-4 md:mb-6"
                 style={{ color: "var(--color-accent-primary)" }}
               >
                 CONTACT
               </p>
               <h2
-                className="text-h1 mb-8"
+                className="text-h1 mb-6 md:mb-8"
                 style={{ color: "var(--color-text-primary)" }}
               >
                 Let&apos;s make
@@ -282,7 +285,7 @@ export default function HomePage() {
                 </span>
               </h2>
               <p
-                className="text-body mb-12"
+                className="text-body mb-8 md:mb-12"
                 style={{
                   color: "var(--color-text-secondary)",
                   maxWidth: "400px",
@@ -293,7 +296,7 @@ export default function HomePage() {
 
               <div>
                 <p
-                  className="text-caption mb-3"
+                  className="text-caption mb-2 md:mb-3"
                   style={{ color: "var(--color-text-muted)" }}
                 >
                   DIRECT EMAIL
@@ -303,8 +306,9 @@ export default function HomePage() {
                   style={{
                     color: "var(--color-accent-primary)",
                     textDecoration: "none",
-                    fontSize: "var(--text-h3)",
+                    fontSize: "clamp(1.1rem, 3.5vw, 1.5rem)",
                     fontWeight: 500,
+                    wordBreak: "break-word",
                   }}
                 >
                   dskumardarsi@gmail.com
@@ -313,7 +317,7 @@ export default function HomePage() {
             </div>
 
             {/* Right: Form */}
-            <div className="glass-panel p-6 md:p-10" style={{ borderRadius: "20px" }}>
+            <div className="glass-panel p-6 sm:p-8 lg:p-10" style={{ borderRadius: "20px" }}>
               {sent ? (
                 <div style={{ textAlign: "center", padding: "32px 0" }}>
                   <Send size={32} style={{ color: "var(--color-accent-primary)", margin: "0 auto 16px" }} />

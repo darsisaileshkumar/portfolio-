@@ -58,7 +58,7 @@ export default function ContactPage() {
       }}
     >
       <div className="container-max section-spacing">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
           {/* Left — headline */}
           <div>
             <p
@@ -102,9 +102,10 @@ export default function ContactPage() {
                 style={{
                   color: "var(--color-accent-primary)",
                   textDecoration: "none",
-                  fontSize: "var(--text-h3)",
+                  fontSize: "clamp(1.1rem, 3.5vw, 1.5rem)",
                   fontWeight: 500,
                   transition: "opacity 0.2s",
+                  wordBreak: "break-word",
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.7")}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}

@@ -82,21 +82,31 @@ export function Navbar() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div
-          className="absolute top-full left-0 right-0 glass-panel mx-4 mt-2 py-4 px-6 flex flex-col gap-4 md:hidden"
-          style={{ borderRadius: "16px" }}
+          className="absolute top-full left-0 right-0 glass-panel mx-4 mt-2 py-5 px-6 flex flex-col gap-4 md:hidden shadow-2xl z-50"
+          style={{
+            borderRadius: "20px",
+            background: "rgba(15, 17, 22, 0.96)",
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
+            border: "1px solid var(--color-glass-border)",
+          }}
         >
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="nav-link text-base"
-              style={{ textTransform: "none", letterSpacing: "normal" }}
+              className="nav-link text-lg font-medium py-1"
+              style={{ textTransform: "none", letterSpacing: "normal", color: "var(--color-text-primary)" }}
               onClick={() => setMobileOpen(false)}
             >
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" className="btn-primary justify-center mt-2" onClick={() => setMobileOpen(false)}>
+          <Link
+            href="/#contact"
+            className="btn-primary justify-center mt-2 py-3 text-base"
+            onClick={() => setMobileOpen(false)}
+          >
             Let&apos;s talk
           </Link>
         </div>
